@@ -1,0 +1,286 @@
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>VibrantVoice - Iniciar sesión o Registrarse</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..800;1,6..72,400..800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#c1c6d7",
+                        "secondary-container": "#dde2f3",
+                        "inverse-primary": "#ffb4a3",
+                        "on-background": "#181c1e",
+                        "background": "#f7fafc",
+                        "inverse-on-surface": "#eef1f3",
+                        "inverse-surface": "#2d3133",
+                        "on-primary-container": "#5a0c00",
+                        "surface": "#f7fafc",
+                        "primary": "#b52603",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#111c2c",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "tertiary-container": "#8893a8",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#ebeef0",
+                        "outline-variant": "#e3beb6",
+                        "surface-variant": "#e0e3e5",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#f1f4f6",
+                        "tertiary-fixed": "#d8e3fa",
+                        "on-secondary-fixed": "#161c27",
+                        "outline": "#8f7069",
+                        "on-secondary-container": "#5e6473",
+                        "tertiary-fixed-dim": "#bcc7dd",
+                        "secondary-fixed": "#dde2f3",
+                        "surface-bright": "#f7fafc",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-surface": "#181c1e",
+                        "secondary": "#585e6c",
+                        "primary-container": "#ff5a36",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "surface-container-high": "#e5e9eb",
+                        "surface-tint": "#b52603",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-container": "#212c3d",
+                        "surface-dim": "#d7dadc",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#ffdad2",
+                        "on-tertiary-fixed-variant": "#3c475a",
+                        "on-surface-variant": "#5b403a",
+                        "on-primary-fixed": "#3d0600",
+                        "on-error-container": "#93000a",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#545f72",
+                        "on-secondary-fixed-variant": "#414754"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "container-max-width": "1200px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "48px",
+                        "reading-width": "680px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Newsreader"],
+                        "label-bold": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-reading": ["Newsreader"],
+                        "display-lg": ["Newsreader"],
+                        "headline-sm": ["Newsreader"],
+                        "display-lg-mobile": ["Newsreader"],
+                        "body-ui": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "label-bold": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "body-reading": ["20px", {"lineHeight": "32px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg-mobile": ["36px", {"lineHeight": "42px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-ui": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-tab {
+            color: #b52603;
+            border-bottom: 2px solid #b52603;
+        }
+        .social-btn:hover {
+            box-shadow: 0 4px 12px rgba(255, 90, 54, 0.08);
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex flex-col min-h-screen">
+<!-- TopNavBar (Note: Rendered but Shell Visibility Rules applied - Login is often focused, but following instructions to include it) -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-on-background shadow-sm shadow-[rgba(255,90,54,0.04)]">
+<div class="flex justify-between items-center h-16 px-gutter max-w-container-max-width mx-auto">
+<div class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed-dim">
+                VibrantVoice
+            </div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-secondary dark:text-secondary-fixed-dim font-label-bold text-label-bold hover:text-primary-container transition-colors duration-200" href="#">Home</a>
+<a class="text-secondary dark:text-secondary-fixed-dim font-label-bold text-label-bold hover:text-primary-container transition-colors duration-200" href="#">Stories</a>
+<a class="text-secondary dark:text-secondary-fixed-dim font-label-bold text-label-bold hover:text-primary-container transition-colors duration-200" href="#">News</a>
+<a class="text-secondary dark:text-secondary-fixed-dim font-label-bold text-label-bold hover:text-primary-container transition-colors duration-200" href="#">Community</a>
+</nav>
+<div class="flex items-center space-x-4">
+<button class="material-symbols-outlined text-secondary hover:text-primary">search</button>
+<button class="material-symbols-outlined text-secondary hover:text-primary">notifications</button>
+<button class="bg-primary-container text-on-primary font-label-bold px-6 py-2 rounded-full transition-all active:opacity-80 active:scale-95">Write</button>
+</div>
+</div>
+</header>
+<main class="flex-grow flex pt-16 h-[calc(100vh-64px)] overflow-hidden">
+<!-- Split View: Desktop Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-2 w-full">
+<!-- Left Side: Image Content -->
+<div class="hidden lg:flex relative justify-center bg-inverse-surface overflow-hidden items-start pt-24">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60" data-alt="High-quality, professional photography for a news platform. A modern tech workspace with a laptop displaying code and digital news interfaces, soft glowing screens, futuristic data visualizations in the background, sleek and clean composition, tech-focused atmosphere, natural lighting, deep focus. Consistent with the Lumina Narrative brand colors (coral accents)." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqsEu96BSCmc8BE4U6B5VFc2w1YpyBz2c2PdsHEK-OXyBL89iu6I5HWVCNntfzb4mOZlqAMcPYMcZW3bb71ppLlLK50uGSlQFx7e3zAHTQSaEO5qChO7AD43-T2KZ_4woPvrgxQihvodEGTSaTKzBmUNtkUhSTYI5a7FpcF-oTeSXLOON9Jj5sBJk2TTba7HgfN6kJMPb0_p9VwWS8eeXQMM_vJJFTwua8k3FynLWeQv2sM4n8iHrC30njqwHW3hBWBX1GJU4rH1iQ">
+<div class="relative z-10 px-margin-desktop text-center">
+<h1 class="font-display-lg text-display-lg text-white mb-6 leading-tight max-w-lg mx-auto">
+                        Tu voz, tu historia, nuestra comunidad.
+                    </h1>
+<div class="w-24 h-1 bg-primary-container mx-auto"></div>
+</div>
+</div>
+<!-- Right Side: Form Content -->
+<div class="flex flex-col items-center justify-center p-gutter bg-surface overflow-y-auto">
+<div class="w-full max-w-md">
+<div class="mb-10 text-center lg:text-left">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Bienvenido de nuevo</h2>
+<p class="font-body-ui text-body-ui text-secondary">Únete a la conversación en VibrantVoice.</p>
+</div>
+<!-- Tabs -->
+<div class="flex border-b border-outline-variant mb-8">
+<button class="flex-1 py-3 font-label-bold text-label-bold active-tab transition-all" id="tab-login" onclick="toggleForm('login')">
+                            Iniciar sesión
+                        </button>
+<button class="flex-1 py-3 font-label-bold text-label-bold text-secondary transition-all" id="tab-signup" onclick="toggleForm('signup')">
+                            Registrarse
+                        </button>
+</div>
+<!-- Login Form -->
+<form class="space-y-6 block" id="form-login">
+<div>
+<label class="block font-label-bold text-label-sm text-on-surface-variant mb-2">Correo electrónico o número de teléfono</label>
+<input class="w-full px-4 py-3 rounded-lg border border-outline-variant focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all outline-none shadow-sm" placeholder="nombre@ejemplo.com o +34..." type="email">
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<label class="block font-label-bold text-label-sm text-on-surface-variant">Contraseña</label>
+<a class="text-primary font-label-sm hover:underline" href="#">¿Olvidé mi contraseña?</a>
+</div>
+<input class="w-full px-4 py-3 rounded-lg border border-outline-variant focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all outline-none shadow-sm" placeholder="••••••••" type="password">
+</div>
+<button class="w-full bg-primary-container text-on-primary font-label-bold py-4 rounded-xl shadow-lg shadow-primary-container/20 hover:scale-[1.02] active:scale-95 transition-all" type="submit">
+                            Entrar
+                        </button>
+</form>
+<!-- Signup Form (Hidden by default) -->
+<form class="space-y-6 hidden" id="form-signup">
+<div>
+<label class="block font-label-bold text-label-sm text-on-surface-variant mb-2">Nombre completo</label>
+<input class="w-full px-4 py-3 rounded-lg border border-outline-variant focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all outline-none shadow-sm" placeholder="Tu nombre" type="text">
+</div>
+<div>
+<label class="block font-label-bold text-label-sm text-on-surface-variant mb-2">Nombre de usuario</label>
+<input class="w-full px-4 py-3 rounded-lg border border-outline-variant focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all outline-none shadow-sm" placeholder="@usuario" type="text">
+</div>
+<div>
+<label class="block font-label-bold text-label-sm text-on-surface-variant mb-2">Correo electrónico o número de teléfono</label>
+<input class="w-full px-4 py-3 rounded-lg border border-outline-variant focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all outline-none shadow-sm" placeholder="nombre@ejemplo.com o +34..." type="email">
+</div>
+<div>
+<label class="block font-label-bold text-label-sm text-on-surface-variant mb-2">Contraseña</label>
+<input class="w-full px-4 py-3 rounded-lg border border-outline-variant focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all outline-none shadow-sm" placeholder="Mínimo 8 caracteres" type="password">
+</div>
+<button class="w-full bg-primary-container text-on-primary font-label-bold py-4 rounded-xl shadow-lg shadow-primary-container/20 hover:scale-[1.02] active:scale-95 transition-all" type="submit">
+                            Crear cuenta
+                        </button>
+</form>
+<!-- Social Login -->
+<div class="mt-10">
+<div class="relative flex items-center mb-8">
+<div class="flex-grow border-t border-outline-variant"></div>
+<span class="flex-shrink mx-4 text-secondary font-label-sm uppercase tracking-widest">O continúa con</span>
+<div class="flex-grow border-t border-outline-variant"></div>
+</div>
+<div class="grid grid-cols-3 gap-4">
+<button class="social-btn flex items-center justify-center py-3 border border-outline-variant rounded-lg transition-all">
+<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+</button>
+<button class="social-btn flex items-center justify-center py-3 border border-outline-variant rounded-lg transition-all">
+<svg class="w-6 h-6" fill="#1877F2" viewBox="0 0 24 24">
+<path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
+</svg>
+</button>
+<button class="social-btn flex items-center justify-center py-3 border border-outline-variant rounded-lg transition-all">
+<svg class="w-6 h-6" fill="black" viewBox="0 0 24 24">
+<path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2.013-.156-3.393 1.09-4.305 1.09zM15.01 4.844c.831-1.004 1.385-2.402 1.234-3.804-1.201.052-2.653.805-3.511 1.81-.767.883-1.442 2.324-1.26 3.688 1.334.104 2.701-.69 3.537-1.694z"></path>
+</svg>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 bg-surface-container-low dark:bg-inverse-surface border-t border-outline-variant dark:border-outline">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-gutter max-w-container-max-width mx-auto text-center md:text-left">
+<div>
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface dark:text-inverse-on-surface mb-4">VibrantVoice</div>
+<p class="font-body-ui text-body-ui text-on-surface-variant">Donde las palabras cobran vida.</p>
+</div>
+<div class="flex flex-col space-y-2">
+<h4 class="font-label-bold text-label-bold text-primary mb-2">Comunidad</h4>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim font-label-sm text-label-sm hover:text-primary transition-colors" href="#">Normas de la comunidad</a>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim font-label-sm text-label-sm hover:text-primary transition-colors" href="#">Directrices de publicación</a>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim font-label-sm text-label-sm hover:text-primary transition-colors" href="#">Sobre nosotros</a>
+</div>
+<div class="flex flex-col space-y-2">
+<h4 class="font-label-bold text-label-bold text-primary mb-2">Legal</h4>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim font-label-sm text-label-sm hover:text-primary transition-colors" href="#">Términos de servicio</a>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim font-label-sm text-label-sm hover:text-primary transition-colors" href="#">Política de privacidad</a>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim font-label-sm text-label-sm hover:text-primary transition-colors" href="#">Cookies</a>
+</div>
+</div>
+<div class="mt-12 text-center text-on-surface-variant opacity-60 font-label-sm text-label-sm">
+            © 2024 VibrantVoice. All rights reserved.
+        </div>
+</footer>
+<script>
+        function toggleForm(type) {
+            const loginForm = document.getElementById('form-login');
+            const signupForm = document.getElementById('form-signup');
+            const loginTab = document.getElementById('tab-login');
+            const signupTab = document.getElementById('tab-signup');
+
+            if (type === 'login') {
+                loginForm.classList.remove('hidden');
+                signupForm.classList.add('hidden');
+                loginTab.classList.add('active-tab');
+                loginTab.classList.remove('text-secondary');
+                signupTab.classList.remove('active-tab');
+                signupTab.classList.add('text-secondary');
+            } else {
+                loginForm.classList.add('hidden');
+                signupForm.classList.remove('hidden');
+                loginTab.classList.remove('active-tab');
+                loginTab.classList.add('text-secondary');
+                signupTab.classList.add('active-tab');
+                signupTab.classList.remove('text-secondary');
+            }
+        }
+    </script>
+
+
+</body></html>
