@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#ad2c00",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-container": "#eceef0",
+                        "surface-container-low": "#f2f4f6",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-tertiary-container": "#fffbff",
+                        "tertiary-fixed": "#ffddaf",
+                        "surface-tint": "#b12d00",
+                        "on-tertiary-fixed": "#281800",
+                        "secondary-container": "#4ba1fd",
+                        "surface": "#f7f9fc",
+                        "on-background": "#191c1e",
+                        "inverse-primary": "#ffb5a0",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "on-primary-container": "#fffbff",
+                        "primary-fixed-dim": "#ffb5a0",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#5d4038",
+                        "outline-variant": "#e7bdb2",
+                        "tertiary": "#7c5400",
+                        "surface-container-highest": "#e0e3e5",
+                        "secondary": "#0060a9",
+                        "tertiary-fixed-dim": "#ffba43",
+                        "on-tertiary": "#ffffff",
+                        "outline": "#926f66",
+                        "surface-dim": "#d8dadc",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#001c38",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#d83900",
+                        "inverse-surface": "#2d3133",
+                        "on-secondary-fixed-variant": "#004881",
+                        "on-secondary-container": "#003663",
+                        "tertiary-container": "#9d6b00",
+                        "on-tertiary-fixed-variant": "#614000",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#3b0900",
+                        "primary-fixed": "#ffdbd1",
+                        "on-primary-fixed-variant": "#872000",
+                        "secondary-fixed-dim": "#a2c9ff",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#f7f9fc",
+                        "secondary-fixed": "#d3e4ff",
+                        "background": "#f7f9fc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "margin-mobile": "12px",
+                        "lg": "24px",
+                        "md": "16px",
+                        "margin-desktop": "24px",
+                        "gutter": "16px",
+                        "base": "4px",
+                        "xs": "4px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["IBM Plex Sans"],
+                        "label-md": ["IBM Plex Sans"],
+                        "body-md": ["IBM Plex Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["IBM Plex Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-sm": ["IBM Plex Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "26px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "21px", "fontWeight": "400"}],
+                        "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "body-sm": ["12px", {"lineHeight": "18px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { background-color: #F6F7F8; } /* Reddit-inspired canvas color */
+        .card-border { border: 1px solid #EDEFF1; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- Sidebar Navigation Shell -->
+<aside class="hidden md:flex flex-col gap-sm p-md fixed h-full bg-surface-container-lowest border-r border-surface-variant w-64 left-0 top-0 z-50">
+<div class="mb-lg px-sm">
+<h1 class="text-headline-md font-headline-md font-bold text-primary">TechPulse</h1>
+</div>
+<div class="flex flex-col gap-xs mb-xl">
+<div class="flex items-center gap-sm p-sm bg-surface-container text-primary font-bold rounded-lg scale-95 active:scale-100 transition-transform cursor-pointer">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</div>
+<div class="flex items-center gap-sm p-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-colors cursor-pointer">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-md text-label-md">Subscribers</span>
+</div>
+<div class="flex items-center gap-sm p-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-colors cursor-pointer">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+<span class="font-label-md text-label-md">Campaigns</span>
+</div>
+<div class="flex items-center gap-sm p-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-colors cursor-pointer">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</div>
+</div>
+<button class="mt-auto mb-sm bg-primary text-on-primary font-label-md text-label-md py-sm px-md rounded-full hover:brightness-110 transition-all flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+            New Article
+        </button>
+<div class="flex items-center gap-sm p-sm mt-sm border-t border-surface-variant pt-md">
+<img alt="Editor Avatar" class="w-10 h-10 rounded-full object-cover" data-alt="A close-up portrait of a professional editor in a modern studio. The lighting is soft and natural, emphasizing a bright, trustworthy workspace. The person is smiling warmly, looking directly at the camera with a look of expertise and friendliness. The background shows a blurry hint of a high-tech newsroom with soft orange-red accents that match the primary brand color." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7h9n8a9Z2bcWpNLePxhPBqHo5FwvUc_LYe_u6Bi3BZArazOtGVOItv3AtIi3c-JnAWsm6Awh9_l5EwR2JBV0-KVIGSv41cTDUuAOEF7JcYM53zib_n5kj1-2zMHgcAFg0njYDDl3opf8Ffzabj4lHT23NgD_g3EfJ5e91FXYnAmw3RpUmkTBkS-VA6gAIEoHwHJ2DAWIbYkp5BoBNfLVIGU7OgCXzwfS3fkroqBOg0ZL-lPghHPuF1vjXxeBPTwxer5bYEWdfNDw"/>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Editor Panel</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">TechPulse Newsroom</p>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="bg-surface border-b border-surface-variant sticky top-0 z-40">
+<div class="flex justify-between items-center w-full px-margin-desktop max-w-[1200px] mx-auto h-16">
+<div class="flex items-center gap-lg">
+<span class="md:hidden text-headline-md font-bold text-primary">TechPulse</span>
+<nav class="hidden md:flex gap-md font-label-md text-label-md">
+<a class="text-primary font-bold border-b-2 border-primary pb-1" href="#">Latest</a>
+<a class="text-on-surface-variant hover:bg-surface-container-low rounded-lg px-2 transition-colors" href="#">Analysis</a>
+<a class="text-on-surface-variant hover:bg-surface-container-low rounded-lg px-2 transition-colors" href="#">Market</a>
+<a class="text-on-surface-variant hover:bg-surface-container-low rounded-lg px-2 transition-colors" href="#">Hardware</a>
+</nav>
+</div>
+<div class="flex items-center gap-sm">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]" data-icon="search">search</span>
+<input class="pl-10 pr-4 py-1.5 bg-surface-container-low border border-surface-variant rounded-full text-body-sm focus:ring-2 focus:ring-secondary-container focus:outline-none w-64" placeholder="Search news..." type="text"/>
+</div>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-md py-2 rounded-full hover:brightness-110 transition-all">Register</button>
+</div>
+</div>
+</header>
+<div class="max-w-[1200px] mx-auto px-margin-desktop py-lg">
+<!-- Page Header -->
+<div class="mb-lg">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Panel del Editor</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Gestiona tus suscriptores y comunicaciones de WhatsApp en un solo lugar.</p>
+</div>
+<!-- Dashboard Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Metrics & Compose -->
+<div class="lg:col-span-8 space-y-gutter">
+<!-- Metrics Row -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-gutter">
+<div class="bg-surface-container-lowest card-border p-md rounded-lg flex items-center justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total Suscriptores</p>
+<p class="font-display-lg text-display-lg text-on-surface">12,482</p>
+<p class="font-body-sm text-body-sm text-green-600 flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span>
+                                    +12% este mes
+                                </p>
+</div>
+<div class="bg-primary-fixed w-12 h-12 rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[28px]" data-icon="groups">groups</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest card-border p-md rounded-lg flex items-center justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Clicks Totales</p>
+<p class="font-display-lg text-display-lg text-on-surface">48.2k</p>
+<p class="font-body-sm text-body-sm text-green-600 flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span>
+                                    +5.4% hoy
+                                </p>
+</div>
+<div class="bg-secondary-fixed w-12 h-12 rounded-full flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[28px]" data-icon="ads_click">ads_click</span>
+</div>
+</div>
+</div>
+<!-- Compose Broadcast Area -->
+<section class="bg-surface-container-lowest card-border rounded-lg overflow-hidden">
+<div class="p-md border-b border-surface-variant flex items-center justify-between">
+<h3 class="font-headline-md text-headline-md text-on-surface flex items-center gap-sm">
+<span class="material-symbols-outlined text-green-600" data-icon="chat">chat</span>
+                                Redactar Difusión WhatsApp
+                            </h3>
+<span class="bg-surface-container-high text-on-surface-variant px-sm py-1 rounded-full font-label-sm text-label-sm">Borrador Guardado</span>
+</div>
+<div class="p-md space-y-md">
+<div>
+<label class="font-label-md text-label-md text-on-surface mb-sm block">Mensaje de Difusión</label>
+<textarea class="w-full bg-surface-container-low border border-surface-variant rounded-lg p-md text-body-md focus:ring-2 focus:ring-primary focus:outline-none transition-all" placeholder="Escribe tu mensaje para los suscriptores..." rows="6"></textarea>
+</div>
+<div class="flex flex-wrap gap-sm">
+<button class="flex items-center gap-sm bg-surface-container-high hover:bg-surface-container-highest px-md py-2 rounded-full text-on-surface-variant font-label-md text-label-md transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="image">image</span>
+                                    Añadir Imagen
+                                </button>
+<button class="flex items-center gap-sm bg-surface-container-high hover:bg-surface-container-highest px-md py-2 rounded-full text-on-surface-variant font-label-md text-label-md transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="link">link</span>
+                                    Insertar Enlace
+                                </button>
+<button class="flex items-center gap-sm bg-surface-container-high hover:bg-surface-container-highest px-md py-2 rounded-full text-on-surface-variant font-label-md text-label-md transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="emoji_emotions">emoji_emotions</span>
+                                    Emojis
+                                </button>
+</div>
+</div>
+<div class="p-md bg-surface-container-low border-t border-surface-variant flex justify-between items-center">
+<p class="font-body-sm text-body-sm text-on-surface-variant">Audiencia estimada: <strong>12,482 suscriptores</strong></p>
+<div class="flex gap-sm">
+<button class="text-secondary font-label-md text-label-md px-md py-2 border border-secondary rounded-full hover:bg-secondary-fixed transition-all">Programar</button>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-lg py-2 rounded-full hover:brightness-110 shadow-sm transition-all">Enviar Ahora</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Active Subscribers List -->
+<div class="lg:col-span-4">
+<section class="bg-surface-container-lowest card-border rounded-lg sticky top-24">
+<div class="p-md border-b border-surface-variant flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md text-on-surface">Suscriptores Activos</h3>
+<button class="text-secondary font-label-sm text-label-sm hover:underline">Ver todo</button>
+</div>
+<div class="divide-y divide-surface-variant">
+<!-- Subscriber Item -->
+<div class="p-md flex items-center gap-md hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="relative">
+<img alt="User Avatar" class="w-10 h-10 rounded-full object-cover" data-alt="A vibrant professional headshot of a young woman with a friendly smile, set against a clean, modern studio background. She has bright, intelligent eyes and the overall aesthetic is corporate yet approachable. The lighting is crisp with soft shadows, highlighting her professional demeanor. Subtle orange-red background elements unify the image with the brand system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiWExoLziCvA-VTo1kj7jJphBLcvv__SRcfRYm33NKJ6ONlgCi1VYjKiT5lGw0Hhic4KqAyAZdLzn6I4cakgTqcdbXV1AX0g-0wME-u2-ZaOZmXusvBX20NqyXJBIr0e9glV_VoD4ixWwQECXvFIfUlcIds-ZVVjItGnmJE8jxMqZBp4-xrSj1ep604HpjmlSr4d8Pnx7vyhF_1240VjqTuTHMVS1r9hVQxkH0-xQq2FbsSo5lx5vDGrwrDuR1_IVL3cDj1osHN70"/>
+<span class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-label-md text-label-md text-on-surface truncate">Ana García</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Activo hace 5 min</p>
+</div>
+<span class="bg-surface-container-high px-sm py-0.5 rounded text-[10px] font-bold text-on-surface-variant uppercase">PRO</span>
+</div>
+<!-- Subscriber Item -->
+<div class="p-md flex items-center gap-md hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="relative">
+<img alt="User Avatar" class="w-10 h-10 rounded-full object-cover" data-alt="A professional portrait of a man in his late 30s wearing business casual attire. He looks confident and engaged, positioned in a well-lit office setting that feels modern and innovative. The image quality is high, with a shallow depth of field that keeps the focus entirely on his friendly expression. Warm, professional tones dominate the scene." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEzKOpV6fRi2TdBUr2jzXMCtHLK57vaJqtZhKeL9YD8QTeo2tUgJCb9HEkc3ic_8IGMmUsxTivNezF9wH_14-R4BtRiG51gZ08uHK-96O9ZIm5kQuvT5lQ_Z1YupOjdwWUMeR2l0gZQhsP_mDSrty1TACKw4l7DFsw2l6csL4jkDav2QLSepD_v65uGtHRkBwvwjG7AODRYFF3qs7v4BtIT8Gtzcc1wWm6MnsUsxSKwWZaAJG51RIGSla7N-LWe7o3UiuYECQXEG4"/>
+<span class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-label-md text-label-md text-on-surface truncate">Carlos Ruiz</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Activo hace 12 min</p>
+</div>
+<span class="bg-surface-container-high px-sm py-0.5 rounded text-[10px] font-bold text-on-surface-variant uppercase">FREE</span>
+</div>
+<!-- Subscriber Item -->
+<div class="p-md flex items-center gap-md hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="relative">
+<img alt="User Avatar" class="w-10 h-10 rounded-full object-cover" data-alt="A portrait of a tech-savvy female executive in a sleek, minimalist environment. She exudes confidence and reliability, captured with sharp focus and cinematic lighting that creates a professional, high-end feel. The palette is neutral with soft warmth, aligning with a corporate-modern design system. Her expression is focused and capable." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQ4KJP_bUCiYTpCGjOhErKVX5zS4oC9EoZ52f9FjXE26Z6iwhW-PXhVYB055MPVls1UwUh7JFTJqkguqu2SwMCy1DZYRlHaFZg5uKR2CIYt_AUlpvoI5rBLz-AiKUsXtd4zU3YvpwnQPpNbY15oRe2TkX5uefnEndfA3tJG5-GPPl381XR0_xJWXdafaj-lw-rDj67_SWmtrKIgCRw_P3aw71hvL4wTlbkiKP-zwZQN5U2mBMr9dhVQ64iVgct2HqU3jFg0Q-vClI"/>
+<span class="absolute bottom-0 right-0 w-3 h-3 bg-gray-400 border-2 border-white rounded-full"></span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-label-md text-label-md text-on-surface truncate">Elena Martínez</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Inactivo</p>
+</div>
+<span class="bg-surface-container-high px-sm py-0.5 rounded text-[10px] font-bold text-on-surface-variant uppercase">PRO</span>
+</div>
+<!-- Subscriber Item -->
+<div class="p-md flex items-center gap-md hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="relative">
+<img alt="User Avatar" class="w-10 h-10 rounded-full object-cover" data-alt="A high-quality headshot of a creative professional man with a modern haircut and stylish glasses. He is looking off-camera with a contemplative, visionary expression. The lighting is directional, creating a sophisticated professional look. The background is a soft, out-of-focus tech environment with a hint of primary brand colors in the ambient light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlcH4pvK_ZS6yOMOHR5PYVZn-wV_Y-y8gwEtpMPK8cFDYg_O2RMTmcgXukiAwLPXvC8cfhrJ3qX3Jv0t8npRv8Py40HT8xKEsPwM82u22LnIRmGUHZYjODAt9vAWcR9xcRSH3fu5dp8JLavGCx0SoYmoMHPkHI-NgapjJkjXiKbexvIHY0EBMkXBrM3ms4qr_z8HX_CsIkxelW8-kVzf3kROWIhq3sUbHoSWiD9atyZ3ZC0PEe2LtctLPoRX4U_r_9ZWfOSM9ENmM"/>
+<span class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-label-md text-label-md text-on-surface truncate">Javier Soler</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Activo hace 2 min</p>
+</div>
+<span class="bg-surface-container-high px-sm py-0.5 rounded text-[10px] font-bold text-on-surface-variant uppercase">FREE</span>
+</div>
+</div>
+<div class="p-md text-center">
+<button class="font-label-md text-label-md text-secondary hover:underline flex items-center justify-center gap-xs mx-auto">
+<span class="material-symbols-outlined text-[18px]" data-icon="search">search</span>
+                                Buscar suscriptores
+                            </button>
+</div>
+</section>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="bg-surface border-t border-surface-variant mt-xl">
+<div class="flex flex-col md:flex-row justify-between items-center py-lg px-margin-desktop max-w-[1200px] mx-auto">
+<div class="mb-md md:mb-0">
+<p class="text-headline-lg font-headline-lg font-bold text-primary">TechPulse</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-sm">© 2024 TechPulse Media. All rights reserved.</p>
+</div>
+<div class="flex gap-lg font-label-sm text-label-sm text-on-surface-variant">
+<a class="hover:text-primary transition-all hover:underline underline-offset-4" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-all hover:underline underline-offset-4" href="#">Terms</a>
+<a class="hover:text-primary transition-all hover:underline underline-offset-4" href="#">Contact</a>
+</div>
+</div>
+</footer>
+</main>
+<!-- Mobile Navigation Bar -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface border-t border-surface-variant z-50 flex justify-around items-center h-16 px-md">
+<button class="flex flex-col items-center gap-xs text-primary font-bold">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] uppercase font-bold">Panel</span>
+</button>
+<button class="flex flex-col items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="text-[10px] uppercase font-bold">Subs</span>
+</button>
+<button class="flex flex-col items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+<span class="text-[10px] uppercase font-bold">Difusión</span>
+</button>
+<button class="flex flex-col items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-[10px] uppercase font-bold">Ajustes</span>
+</button>
+</nav>
+<script>
+        // Micro-interaction for compose button
+        const sendBtn = document.querySelector('button.bg-primary');
+        if(sendBtn) {
+            sendBtn.addEventListener('mousedown', () => sendBtn.style.transform = 'scale(0.95)');
+            sendBtn.addEventListener('mouseup', () => sendBtn.style.transform = 'scale(1)');
+            sendBtn.addEventListener('mouseleave', () => sendBtn.style.transform = 'scale(1)');
+        }
+    </script>
+</body></html>

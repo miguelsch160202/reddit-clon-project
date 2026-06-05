@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TechPulse | Rediseño de Noticia</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#ad2c00",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#e0e3e5",
+                    "surface-container-high": "#e6e8ea",
+                    "surface-container": "#eceef0",
+                    "surface-container-low": "#f2f4f6",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-tertiary-container": "#fffbff",
+                    "tertiary-fixed": "#ffddaf",
+                    "surface-tint": "#b12d00",
+                    "on-tertiary-fixed": "#281800",
+                    "secondary-container": "#4ba1fd",
+                    "surface": "#f7f9fc",
+                    "on-background": "#191c1e",
+                    "inverse-primary": "#ffb5a0",
+                    "on-secondary": "#ffffff",
+                    "on-surface": "#191c1e",
+                    "on-primary-container": "#fffbff",
+                    "primary-fixed-dim": "#ffb5a0",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#5d4038",
+                    "outline-variant": "#e7bdb2",
+                    "tertiary": "#7c5400",
+                    "surface-container-highest": "#e0e3e5",
+                    "secondary": "#0060a9",
+                    "tertiary-fixed-dim": "#ffba43",
+                    "on-tertiary": "#ffffff",
+                    "outline": "#926f66",
+                    "surface-dim": "#d8dadc",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed": "#001c38",
+                    "on-error-container": "#93000a",
+                    "primary-container": "#d83900",
+                    "inverse-surface": "#2d3133",
+                    "on-secondary-fixed-variant": "#004881",
+                    "on-secondary-container": "#003663",
+                    "tertiary-container": "#9d6b00",
+                    "on-tertiary-fixed-variant": "#614000",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed": "#3b0900",
+                    "primary-fixed": "#ffdbd1",
+                    "on-primary-fixed-variant": "#872000",
+                    "secondary-fixed-dim": "#a2c9ff",
+                    "error-container": "#ffdad6",
+                    "surface-bright": "#f7f9fc",
+                    "secondary-fixed": "#d3e4ff",
+                    "background": "#f7f9fc"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "32px",
+                    "margin-mobile": "12px",
+                    "lg": "24px",
+                    "md": "16px",
+                    "margin-desktop": "24px",
+                    "gutter": "16px",
+                    "base": "4px",
+                    "xs": "4px",
+                    "sm": "8px"
+            },
+            "fontFamily": {
+                    "body-lg": ["IBM Plex Sans"],
+                    "label-md": ["IBM Plex Sans"],
+                    "body-md": ["IBM Plex Sans"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["IBM Plex Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-sm": ["IBM Plex Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "26px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "21px", "fontWeight": "400"}],
+                    "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-sm": ["12px", {"lineHeight": "18px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #F6F7F8; /* Using design system background color logic */
+        }
+        .article-card {
+            border: 1px solid #EDEFF1; /* From style guidance */
+        }
+        .vote-sidebar {
+            background: #f8f9fa;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- TopNavBar (Fixed Shell) -->
+<header class="bg-surface sticky top-0 z-50 border-b border-surface-variant">
+<div class="flex justify-between items-center w-full px-margin-desktop max-w-[1200px] mx-auto h-16">
+<div class="flex items-center gap-lg">
+<span class="text-headline-md font-headline-md font-bold text-primary">TechPulse</span>
+<nav class="hidden md:flex gap-md font-label-md text-label-md">
+<a class="text-on-surface-variant hover:bg-surface-container-low transition-colors px-2 py-1 rounded-lg" href="#">Latest</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1" href="#">Analysis</a>
+<a class="text-on-surface-variant hover:bg-surface-container-low transition-colors px-2 py-1 rounded-lg" href="#">Market</a>
+<a class="text-on-surface-variant hover:bg-surface-container-low transition-colors px-2 py-1 rounded-lg" href="#">Hardware</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden sm:flex items-center bg-surface-container rounded-full px-4 py-1.5 border border-transparent focus-within:border-secondary transition-all">
+<span class="material-symbols-outlined text-on-surface-variant mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 p-0 text-body-sm w-48" placeholder="Buscar en TechPulse" type="text"/>
+</div>
+<button class="bg-primary text-on-primary px-lg py-1.5 rounded-full font-label-md hover:opacity-90 transition-opacity">Register</button>
+</div>
+</div>
+</header>
+<main class="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter mt-lg px-margin-mobile md:px-margin-desktop mb-xl">
+<!-- Main Content Area (8 Columns) -->
+<div class="md:col-span-8 flex flex-col gap-md">
+<!-- Article Card -->
+<article class="article-card bg-surface-container-lowest rounded-lg overflow-hidden flex shadow-sm">
+<!-- Reddit-style Vote Bar -->
+<div class="vote-sidebar hidden sm:flex flex-col items-center py-4 w-12 shrink-0">
+<button class="text-on-surface-variant hover:text-primary hover:bg-surface-container p-1 rounded">
+<span class="material-symbols-outlined">arrow_upward</span>
+</button>
+<span class="font-bold text-label-md my-1 text-on-surface">1.2k</span>
+<button class="text-on-surface-variant hover:text-secondary p-1 rounded">
+<span class="material-symbols-outlined">arrow_downward</span>
+</button>
+</div>
+<div class="p-md flex-1">
+<!-- Metadata Header -->
+<div class="flex items-center gap-sm mb-base">
+<img alt="Autor" class="w-6 h-6 rounded-full object-cover" data-alt="A professional close-up portrait of a female tech journalist in her late thirties, smiling warmly. The setting is a brightly lit, modern office with soft-focus glass partitions and lush green indoor plants in the background. The lighting is natural and airy, aligning with a light-mode editorial aesthetic with warm skin tones and crisp details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRCwCO0vuxhWQwSjUde3DEIxkqCk8YT1ah9Bzijk372FSLSk6gVlXVBZ9_AR9xAenV0X3X3R8HZB2wodwTieoHcoDSdiGT56YyIRe01PsSE9D5H81GxH6z377f7cOWdyxJI67V4TynfiCM5wInIAvfaYlp8TssS1tvnSOFqw7l-qsz5_Fg6U3pb7wQ8_Yd6OVbZVn3nEX_9rPdr8L7wedgGon5tplsU90QQt_E4l1TjU_5OniYgcmc6Nuih6ejsNK28I6X6UUTb1Q"/>
+<span class="font-label-md text-on-surface">u/ElenaGomez</span>
+<span class="text-body-sm text-on-surface-variant">• Publicado hace 4 horas en</span>
+<a class="font-label-md text-secondary hover:underline" href="#">/r/inteligencia_artificial</a>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-background mb-md">
+                        El auge de los chips neuronales: ¿Estamos cerca de la verdadera IA integrada?
+                    </h1>
+<div class="flex flex-wrap gap-xs mb-lg">
+<span class="bg-surface-container-highest text-on-surface-variant px-sm py-0.5 rounded-full text-label-sm">Hardware</span>
+<span class="bg-surface-container-highest text-on-surface-variant px-sm py-0.5 rounded-full text-label-sm">Tendencias 2024</span>
+</div>
+<!-- Article Image -->
+<figure class="mb-lg">
+<img alt="Microchip Neuronal" class="w-full h-auto rounded-xl object-cover article-card" data-alt="A highly detailed close-up of a futuristic semiconductor silicon chip with glowing neon copper pathways and crystalline structures. The lighting is a sophisticated mix of deep shadows and bright electrical highlights in shades of orange and soft blue. The overall mood is high-tech and premium, reflecting advanced material science and hardware innovation in a clean laboratory setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBiNKakGNgMVyR07mb93S5EWmyrU-BrmmJltS9UpFdgQ8tPAAzeWZr4FaGgdZIuizKHIhW8WPsEuiFoS4az6zDXZKj_yhJMPv6TiWpC2UmtxtRD6E4br4k3kMJk3UmElE-sqRKM-BU9_dEJpFt5G41hORDfFNXLMPeB4iukUOCmIKuVrHQZn_rkOTtthjhM4JVCFa1O4-GLxgXEtcWxfJkeLJ7xVyAKD5DL6O8ajCPeMHTXSQBdq2aDHf8xyy-aVcUPOQfzxe4MHo"/>
+<figcaption class="text-body-sm text-on-surface-variant mt-sm text-center italic">Representación conceptual de la arquitectura Synapse v2.</figcaption>
+</figure>
+<!-- Article Body Content -->
+<div class="font-body-lg text-body-lg text-on-surface space-y-md leading-relaxed">
+<p>
+                            La industria de los semiconductores está atravesando su transformación más radical en décadas. No se trata simplemente de miniaturización, sino de una arquitectura completamente nueva inspirada en la eficiencia energética del cerebro humano. 
+                        </p>
+<p>
+                            A diferencia de los procesadores tradicionales, estos nuevos diseños procesan la información de manera masiva y paralela. Los expertos sugieren que para 2025, la mayoría de los dispositivos móviles contarán con una unidad de procesamiento tensorial dedicada.
+                        </p>
+<blockquote class="border-l-4 border-primary bg-surface-container-low px-md py-sm italic rounded-r-lg">
+                            "No estamos mejorando la velocidad; estamos redefiniendo lo que significa computar," afirma David Chen, CTO de GlobalSys.
+                        </blockquote>
+<p>
+                            Esta evolución plantea preguntas críticas sobre la privacidad y la autonomía de los dispositivos. Si el procesamiento de IA ocurre localmente y no en la nube, ¿cómo cambia nuestra relación con la seguridad de los datos?
+                        </p>
+</div>
+<!-- Footer Interactions -->
+<div class="mt-xl flex items-center gap-md border-t border-surface-variant pt-md">
+<button class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container rounded px-md py-1.5 transition-colors">
+<span class="material-symbols-outlined text-md">chat_bubble_outline</span>
+<span class="font-label-md">142 Comentarios</span>
+</button>
+<button class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container rounded px-md py-1.5 transition-colors">
+<span class="material-symbols-outlined text-md">share</span>
+<span class="font-label-md">Compartir</span>
+</button>
+<button class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container rounded px-md py-1.5 transition-colors">
+<span class="material-symbols-outlined text-md">bookmark_border</span>
+<span class="font-label-md">Guardar</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Comments Preview (Thread-like UI) -->
+<div class="article-card bg-surface-container-lowest rounded-lg p-md">
+<h3 class="font-headline-md text-headline-md mb-md">Discusión Destacada</h3>
+<div class="flex flex-col gap-md">
+<div class="flex gap-md">
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold text-label-sm">JD</div>
+<div class="w-0.5 h-full bg-surface-variant mt-sm"></div>
+</div>
+<div>
+<div class="flex items-center gap-sm mb-xs">
+<span class="font-label-md">u/JuanDigital</span>
+<span class="text-body-sm text-on-surface-variant">hace 2 h</span>
+</div>
+<p class="text-body-md text-on-surface">Excelente artículo. Me pregunto si esto afectará el precio de las laptops de gama media a corto plazo.</p>
+<div class="flex gap-md mt-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-sm cursor-pointer hover:text-primary">thumb_up</span>
+<span class="material-symbols-outlined text-sm cursor-pointer hover:text-primary">reply</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar (4 Columns) -->
+<aside class="md:col-span-4 flex flex-col gap-gutter">
+<!-- Sidebar Widget: Related News -->
+<section class="article-card bg-surface-container-lowest rounded-lg overflow-hidden flex flex-col">
+<div class="bg-primary p-md">
+<h2 class="text-on-primary font-headline-md text-headline-md">Noticias Relacionadas</h2>
+</div>
+<div class="p-md flex flex-col gap-md">
+<a class="group flex gap-sm" href="#">
+<img alt="Cybersecurity" class="w-16 h-16 rounded-lg object-cover group-hover:opacity-80 transition-opacity" data-alt="A macro shot of a server room with blinking cyan and green LED lights reflected on metallic racks. The perspective is dynamic, moving through a corridor of high-density computing power. The lighting is moody and technological, emphasizing data flow and digital infrastructure in a secure, futuristic facility environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlh-P_ZnIRJYSKgm61nBidFhytbpF3HWXtTPvO0TVSgU5XS24t0In1MbWAJ0KIWCexOad5CSf8vwoRQ2DbifSG9to1pDzLYc9FOQ1b_4kS1TW6V35rGJ9fe69m-EUYfc0WsImMqovAGL2OSi-Mhn0-EA5aIGetfD0S4aHqmfI-8UtyBWTKSjMw-Zf6mj60mTZQJ0cBvVqnR2nIbyHed9Bwln8AJVo1rjbHxzbL-ZGtSw7MytjSR9OS3VLOKVy-6pYnYwe3GwCmeg0"/>
+<div class="flex flex-col justify-center">
+<span class="text-primary font-label-sm uppercase tracking-wider">Seguridad</span>
+<h4 class="font-label-md text-on-surface group-hover:text-primary transition-colors leading-tight">Nuevos protocolos de encriptación cuántica.</h4>
+</div>
+</a>
+<a class="group flex gap-sm" href="#">
+<img alt="Workspace" class="w-16 h-16 rounded-lg object-cover group-hover:opacity-80 transition-opacity" data-alt="A clean, minimalist desktop workspace featuring a high-end ultra-wide monitor displaying complex code and data visualizations. The desk is made of light wood, and the surrounding environment is a bright, modern studio with soft morning sunlight pouring in. The aesthetic is organized and professional, highlighting a premium tech-focused lifestyle and high productivity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCck0KU09izprExtEP7V2p0cyG4y2qC7RupcPmE4ZoY0abQ-J5EmBCwXPi2xyZNNHWI7yvRSQstat_W6MmLVi0bRV_mQlwK4xa6iGHKlo6m8RwKnt-PhRHRer_HakMS9v1p0moUlAvMnFB3v8TObaCTWNNfSe4OD9IvAAwFwDdkZPCzFFLw_l9F9xeorJqGkDhMwf5wGCfG1vPznHtdofDh29M_GG2P3fW23MOsQ5T6-q17DBzcZ5Qqq9ptIsxUpA0IH7_QCb9eHs"/>
+<div class="flex flex-col justify-center">
+<span class="text-primary font-label-sm uppercase tracking-wider">Hardware</span>
+<h4 class="font-label-md text-on-surface group-hover:text-primary transition-colors leading-tight">Review: La workstation definitiva de 2024.</h4>
+</div>
+</a>
+<a class="group flex gap-sm" href="#">
+<img alt="Mobile Tech" class="w-16 h-16 rounded-lg object-cover group-hover:opacity-80 transition-opacity" data-alt="A sleek, metallic silver laptop sitting on a reflective dark surface. The screen displays a vibrant, colorful abstract wallpaper with fluid gradients of red and blue. The background is a dimly lit, high-end apartment with city lights visible through a window, creating a sophisticated and urban technology-focused atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbaJpcZRtqwFYQxHbap02amaCZktvxySuHL6SVkwaYA8Ws3kHZvDuN8jj8rMfc49u1BFsrj0WzuvcHbD1aLmsMyJTtVB1q2qMTNTRF26d6IUOYwvxfMOvgLnrXs6IqyNKBNek6WlMfp9uSGjvW1Ohd4GKym2TmN_y58VLZkc7f94lb21lESY-XcNhKdQJXmURbZdYBQzXMJkr8Yje7pDrrIiH_4UjX1lI2_1470ZYg3xFrT0RgyRuw0lc5kulDAJev6r4D-cslKkY"/>
+<div class="flex flex-col justify-center">
+<span class="text-primary font-label-sm uppercase tracking-wider">Análisis</span>
+<h4 class="font-label-md text-on-surface group-hover:text-primary transition-colors leading-tight">¿Vale la pena actualizar tu móvil este año?</h4>
+</div>
+</a>
+</div>
+<button class="m-md py-sm bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md rounded-lg transition-colors">
+                    Ver todas las noticias
+                </button>
+</section>
+<!-- Sidebar Widget: About Community -->
+<section class="article-card bg-surface-container-lowest rounded-lg p-md">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">info</span>
+<h2 class="font-headline-md text-headline-md">Sobre TechPulse</h2>
+</div>
+<p class="text-body-sm text-on-surface mb-md">
+                    La comunidad líder en análisis tecnológico profundo. Únete a más de 500,000 expertos y entusiastas.
+                </p>
+<div class="grid grid-cols-2 gap-md mb-md">
+<div>
+<div class="font-bold text-on-surface">542k</div>
+<div class="text-body-sm text-on-surface-variant">Lectores</div>
+</div>
+<div>
+<div class="font-bold text-on-surface">2.1k</div>
+<div class="text-body-sm text-on-surface-variant">En línea</div>
+</div>
+</div>
+<button class="w-full bg-secondary text-on-secondary py-sm rounded-full font-label-md hover:opacity-90 transition-opacity">
+                    Unirse a la conversación
+                </button>
+</section>
+</aside>
+</main>
+<!-- Footer Shell -->
+<footer class="bg-surface border-t border-surface-variant mt-xl">
+<div class="flex flex-col md:flex-row justify-between items-center py-lg px-margin-desktop max-w-[1200px] mx-auto gap-md">
+<span class="text-headline-lg font-headline-lg font-bold text-primary">TechPulse</span>
+<div class="flex flex-wrap justify-center gap-lg font-label-sm text-label-sm text-on-surface-variant">
+<a class="hover:text-primary hover:underline underline-offset-4 transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary hover:underline underline-offset-4 transition-colors" href="#">Terms</a>
+<a class="hover:text-primary hover:underline underline-offset-4 transition-colors" href="#">Contact</a>
+</div>
+<p class="text-body-sm text-on-surface-variant">© 2024 TechPulse Media. All rights reserved.</p>
+</div>
+</footer>
+<!-- Interactive Scripts -->
+<script>
+        // Simple micro-interaction for voting
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if(this.innerHTML.includes('arrow_upward')) {
+                    this.classList.toggle('text-primary');
+                }
+                if(this.innerHTML.includes('arrow_downward')) {
+                    this.classList.toggle('text-secondary');
+                }
+            });
+        });
+
+        // Search bar focus effect
+        const searchInput = document.querySelector('input[type="text"]');
+        if(searchInput) {
+            searchInput.addEventListener('focus', () => {
+                searchInput.parentElement.classList.add('ring-2', 'ring-primary-fixed');
+            });
+            searchInput.addEventListener('blur', () => {
+                searchInput.parentElement.classList.remove('ring-2', 'ring-primary-fixed');
+            });
+        }
+    </script>
+</body></html>
